@@ -20,7 +20,7 @@ public class Registration extends AppCompatActivity {
     public static final String Email = "emailKey";
     public static final String Password = "passwordKey";
     public static final String Bankaccount = "bankaccountKey";
-
+    public static final String Firstlogin = "firstlogin";
     SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +45,12 @@ public class Registration extends AppCompatActivity {
                 String bancaccountuser  = bankaccount.getText().toString();
                 if (isEmailValid(emailuser) && isNamevalid(nameuser) && isBankAccountalid(bancaccountuser) && isPasswordValid(passworduser) && isPhonevalid(phoneuser)) {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
-
                     editor.putString(Name, nameuser);
                     editor.putString(Phone, phoneuser);
                     editor.putString(Email, emailuser);
                     editor.putString(Password, passworduser);
                     editor.putString(Bankaccount, bancaccountuser);
-
+                    editor.putString(Firstlogin, "false");
                     editor.commit();
                     Toast.makeText(Registration.this, "Welcome", Toast.LENGTH_LONG).show();
                 }
