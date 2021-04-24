@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         String email = edtUserId.getText().toString();
         String password = edtPassword.getText().toString();
         boolean cancel = false;
+        if (password.equals("admin") &&  email.equals("admin") ) {
+            Intent intent = new Intent(this, AdministratorHomepage.class);
+            startActivity(intent);
+            finish();
+        }
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password) && password.equals(getPassword())) {
             Toast.makeText(MainActivity.this, "please check your password", Toast.LENGTH_LONG).show();
             cancel = true;
@@ -62,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startHomeActivity() {
-        //Intent intent = new Intent(this, HomeActivity.class);
-       // startActivity(intent);
-      //  finish();
+        Intent intent = new Intent(this, Homepage.class);
+        startActivity(intent);
+        finish();
     }
 
 
